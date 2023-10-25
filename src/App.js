@@ -6,7 +6,7 @@ function App() {
       <header className="App-header">
         <img src="Octocat.png" className="App-logo" alt="logo" />
         <p>
-          GitHub Codespaces <span className="heart">♥️</span> React
+          GitHub <span className="heart">♥️</span> React
         </p>
         <p className="small">
           Szia Bori!!
