@@ -1,16 +1,14 @@
-import Profile from './Gallery';
+import Gallery from './Gallery.js';
+import TopBar from './TopBar.js';
+import {useState} from 'react';
 
-function SomeThing() {
-  return (
-    <button>Something!</button>
-  );
-}
 
 export default function App() {
+  const [numberOfPictures, setNumberOfPictures] = useState(2);
   return (
     <>
-      <SomeThing />
-      <Profile />
+      <TopBar />
+      <Gallery pictureCount = {numberOfPictures}/>
     </>
   );
 }
