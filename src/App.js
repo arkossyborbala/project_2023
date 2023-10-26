@@ -1,14 +1,14 @@
-import Gallery from './Gallery.js';
 import TopBar from './TopBar.js';
+import ExplanatoryText from './ExplanatoryText.js';
 import {useState} from 'react';
 
 
 export default function App() {
-  const [numberOfPictures, setNumberOfPictures] = useState(2);
+  const [indexOfText, setIndexOfText] = useState(0);
   return (
     <>
-      <TopBar />
-      <Gallery pictureCount = {numberOfPictures}/>
+      <TopBar setIndexOfText = {setIndexOfText}/>
+      <ExplanatoryText index = {indexOfText}/>
     </>
   );
 }

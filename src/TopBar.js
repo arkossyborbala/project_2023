@@ -9,19 +9,19 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AltRoute from '@mui/icons-material/AltRoute';
 
 const pages = ['Merge sort', 'Quicksort', 'Bubble sort'];
 
-function ResponsiveAppBar() {
+function TopBar({setIndexOfText}) {
   const [anchorElNav, setAnchorElNav] = useState(null);
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (i) => {
     setAnchorElNav(null);
+    setIndexOfText(i);
   };
 
 
@@ -29,7 +29,7 @@ function ResponsiveAppBar() {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <AltRoute sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+        <img src="graph_icon.jpg" alt='graph icon' width="50" height="50" style={{marginRight: '10px', xs: 'none', md: 'flex'}}/>
           <Typography
             variant="h6"
             noWrap
@@ -72,19 +72,18 @@ function ResponsiveAppBar() {
                 horizontal: 'left',
               }}
               open={Boolean(anchorElNav)}
-              onClose={handleCloseNavMenu}
+              onClose={() => handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
+                <MenuItem key={page} onClick={() => handleCloseNavMenu(pages.indexOf(page))}>
                   <Typography textAlign="center">{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
           </Box>
-          <AltRoute sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant="h5"
             noWrap
@@ -107,7 +106,7 @@ function ResponsiveAppBar() {
             {pages.map((page) => (
               <Button
                 key={page}
-                onClick={handleCloseNavMenu}
+                onClick={() => handleCloseNavMenu(pages.indexOf(page))}
                 sx={{ my: 2, color: 'white', display: 'block' }}
               >
                 {page}
@@ -119,4 +118,4 @@ function ResponsiveAppBar() {
     </AppBar>
   );
 }
-export default ResponsiveAppBar;
+export default TopBar;
