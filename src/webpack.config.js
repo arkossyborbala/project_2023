@@ -16,5 +16,12 @@ module.exports = {
       },
     ],
   },
+  resolve: {
+    fallback: {
+      "fs": false,
+       "os": require.resolve("os-browserify/browser"),
+       "path": require.resolve("path-browserify") 
+    }
+  }
   // Define plugins and additional configuration as needed
 };
