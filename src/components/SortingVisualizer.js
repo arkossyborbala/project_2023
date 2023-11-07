@@ -1,7 +1,7 @@
 import {useState} from 'react';
-import { ChartContainer, BarPlot } from '@mui/x-charts';
+import { ChartContainer, BarChart } from '@mui/x-charts';
+import Button  from '@mui/material/Button';
 
-const uData = [4000, 3000, 2000, 2780, 1890, 2390, 3490];
 const xLabels = [
   'Page A',
   'Page B',
@@ -13,15 +13,19 @@ const xLabels = [
 ];
 
 function SortingVisualizer() {
+    const [values, setValues] = useState([4000, 3000, 2000, 2780, 1890, 2390, 3490]);
     return (
-        <ChartContainer
-          width={500}
-          height={300}
-          series={[{ data: uData, label: 'uv', type: 'bar' }]}
-          xAxis={[{ scaleType: 'band', data: xLabels }]}
-        >
-          <BarPlot />
-        </ChartContainer>   
+        <>
+        <BarChart
+            series={[{ data: values }]}
+            width={500}
+            height={300}
+            bottomAxis={null}
+            leftAxis={null}
+            colors={Array(7).fill('#fafa6e')}
+        />
+        <Button variant="contained">Contained</Button>
+        </> 
     );
 }
 export default SortingVisualizer;
