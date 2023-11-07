@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './App.css';
-import ExplanatoryText from './ExplanatoryText.js';
-import TopBar from './TopBar.js';
+import ExplanatoryText from './components/ExplanatoryText.js';
+import TopBar from './components/TopBar.js';
+import SortingVisualizer from './components/SortingVisualizer.js';
 
 
 
@@ -11,6 +12,7 @@ export default function App() {
     <>
       <TopBar setIndexOfText={setIndexOfText} />
       <ExplanatoryText index={indexOfText} />
+      <SortingVisualizer />
     </>
   );
 }
