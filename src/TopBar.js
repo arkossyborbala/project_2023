@@ -9,6 +9,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
+import BarChartIcon from '@mui/icons-material/BarChart';
 
 const pages = ['Merge sort', 'Quicksort', 'Bubble sort'];
 
@@ -29,14 +30,14 @@ function TopBar({setIndexOfText}) {
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-        <img src="graph_icon.jpg" alt='graph icon' width="50" height="50" style={{marginRight: '10px', xs: 'none', md: 'flex'}}/>
+          <BarChartIcon fontSize='large'/>
           <Typography
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
-              mr: 2,
+              ml: 1.5,
+              mr: 3,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
