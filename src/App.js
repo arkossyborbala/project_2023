@@ -11,8 +11,8 @@ export default function App() {
   return (
     <>
       <TopBar setIndexOfText={setIndexOfText} />
-      <ExplanatoryText index={indexOfText} />
       <SortingVisualizer />
+      <ExplanatoryText index={indexOfText} />
     </>
   );
 }
