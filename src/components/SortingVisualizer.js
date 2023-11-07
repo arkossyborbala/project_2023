@@ -1,18 +1,18 @@
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
 import Stack from '@mui/material/Stack';
 import { BarChart } from '@mui/x-charts';
 import Button  from '@mui/material/Button';
 import Slider from '@mui/material/Slider';
 
 
-function SortingVisualizer({length = 5}) {
+function SortingVisualizer({length = 10}) {
     //utils
     function makeRandomArray() {
         const randomArray = Array.from({ length }, () => Math.floor(Math.random() * 100 + 10));
         return randomArray;
     }
 
-    function recalculateColors() {
+    function RecalculateColors() {
         const yellow = Array(numYellow).fill('#fac420');
         const grey = Array(length - numYellow).fill('#d3d3d3');
         console.log(numYellow, activeIndex);
@@ -25,8 +25,11 @@ function SortingVisualizer({length = 5}) {
     //states
     const [values, setValues] = useState(() => makeRandomArray());
     const [colors, setColors] = useState(Array(length).fill('#fac420'));
-    const [numYellow, setNumYellow] = useState(length-1); //for slider [0, length]
+    const [numYellow, setNumYellow] = useState(length); //for slider [0, length]
     const [activeIndex, setActiveIndex] = useState(-1);
+    //hooks
+    useEffect(() => RecalculateColors(), [numYellow]);
+    useEffect(() => RecalculateColors(), [activeIndex]);
     //click handlers
     const handleShuffleClick = () => {
         const shuffledArray = [...values];
@@ -41,14 +44,12 @@ function SortingVisualizer({length = 5}) {
         setValues(makeRandomArray());
     }
 
-    const handleSliderChange = (event, newValue) => {
+    const handleSliderChange = (_, newValue) => {
         setNumYellow(newValue);
-        recalculateColors();
     }
 
-    const handleSecondSliderChange = (event, newValue) => {
+    const handleSecondSliderChange = (_, newValue) => {
         setActiveIndex(newValue);
-        recalculateColors();
     }   
 
     return (
@@ -66,7 +67,7 @@ function SortingVisualizer({length = 5}) {
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleResetClick}>Reset</Button>
                 <Slider
                     min={0}
-                    max={length-1}
+                    max={length}
                     step={1}
                     defaultValue={length}
                     onChange={handleSliderChange}
