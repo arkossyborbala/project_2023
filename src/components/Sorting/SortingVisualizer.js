@@ -7,6 +7,7 @@ import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import BubbleSort from './algorithms/bubbleSort';
 
 
 function SortingVisualizer({length = 20}) {
@@ -60,6 +61,10 @@ function SortingVisualizer({length = 20}) {
         setAlgorithm(event.target.value);
     }
 
+    const handleSortClick = () => {
+        BubbleSort(values, setNumYellow, setActiveIndex, 1000)
+    }
+
     return (
         <Stack direction="row" spacing={2} alignItems='center' justifyContent='center' mr={2}>
             <BarChart
@@ -102,6 +107,7 @@ function SortingVisualizer({length = 20}) {
                       <MenuItem value={'quickSort'}>Quick sort</MenuItem>
                     </Select>
                 </FormControl>
+                <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick}>Sort</Button>
             </Stack>
         </Stack> 
     );
