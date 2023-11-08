@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './App.css';
 import ExplanatoryText from './components/ExplanatoryText.js';
 import TopBar from './components/TopBar.js';
-import SortingVisualizer from './components/SortingVisualizer.js';
+import SortingVisualizer from './components/Sorting/SortingVisualizer.js';
 
 
 
