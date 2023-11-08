@@ -8,6 +8,8 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import BubbleSort from './algorithms/bubbleSort';
+import MergeSort from './algorithms/mergeSort';
+import QuickSort from './algorithms/quickSort';
 
 
 function SortingVisualizer({length = 20}) {
@@ -62,7 +64,15 @@ function SortingVisualizer({length = 20}) {
     }
 
     const handleSortClick = () => {
-        BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200)
+        if(algorithm === 'bubbleSort'){
+             BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200)
+        }
+        else if(algorithm === 'mergeSort'){
+            MergeSort(values, setValues, setNumYellow, setActiveIndex, 200)
+        }
+        else if(algorithm === 'quickSort'){
+            QuickSort(values, setValues, setNumYellow, setActiveIndex, 200)
+        }
     }
 
     return (
@@ -105,6 +115,7 @@ function SortingVisualizer({length = 20}) {
                       <MenuItem value={'bubbleSort'}>Bubble sort</MenuItem>
                       <MenuItem value={'mergeSort'}>Merge sort</MenuItem>
                       <MenuItem value={'quickSort'}>Quick sort</MenuItem>
+                      <MenuItem value={'radixSort'}>Radix sort</MenuItem>
                     </Select>
                 </FormControl>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick}>Sort</Button>
