@@ -4,7 +4,7 @@ function delay(milliseconds) {
     });
 }
 
-async function InsertionSort(arr, arraySetter, highlightOne, sleepTime) {
+async function InsertionSort(arr, arraySetter,numberOfSortedSetter, highlightOne, sleepTime) {
     const len = arr.length;
     
     for (let i = 1; i < len; i++) {
