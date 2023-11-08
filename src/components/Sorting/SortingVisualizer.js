@@ -62,7 +62,7 @@ function SortingVisualizer({length = 20}) {
     }
 
     const handleSortClick = () => {
-        BubbleSort(values, setNumYellow, setActiveIndex, 1000)
+        BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200)
     }
 
     return (
