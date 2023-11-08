@@ -10,6 +10,8 @@ import MenuItem from '@mui/material/MenuItem';
 import BubbleSort from './algorithms/bubbleSort';
 import MergeSort from './algorithms/mergeSort';
 import QuickSort from './algorithms/quickSort';
+import RadixSort from './algorithms/radixSort';
+import InsertionSort from './algorithms/insertionSort.js'
 
 
 function SortingVisualizer({length = 20}) {
@@ -73,6 +75,12 @@ function SortingVisualizer({length = 20}) {
         else if(algorithm === 'quickSort'){
             QuickSort(values, setValues, setNumYellow, setActiveIndex, 200)
         }
+        else if(algorithm === 'radixSort'){
+            RadixSort(values, setValues, setNumYellow, setActiveIndex, 1000)
+        }
+        else if(algorithm === 'insertionSort'){
+            InsertionSort(values, setValues, setNumYellow, setActiveIndex, 1000)
+        }
     }
 
     return (
@@ -116,6 +124,7 @@ function SortingVisualizer({length = 20}) {
                       <MenuItem value={'mergeSort'}>Merge sort</MenuItem>
                       <MenuItem value={'quickSort'}>Quick sort</MenuItem>
                       <MenuItem value={'radixSort'}>Radix sort</MenuItem>
+                      <MenuItem value={'insertionSort'}>Insertion sort</MenuItem>
                     </Select>
                 </FormControl>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick}>Sort</Button>
