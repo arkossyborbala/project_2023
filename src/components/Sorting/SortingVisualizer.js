@@ -38,6 +38,7 @@ function SortingVisualizer({length = 20}) {
     const [numYellow, setNumYellow] = useState(length); //for slider [0, length]
     const [activeIndex, setActiveIndex] = useState(-1);
     const [algorithm, setAlgorithm] = useState('bubbleSort'); //for dropdown
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false); //for sort button
     //hooks
     useEffect(() => RecalculateColors(), [numYellow]);
     useEffect(() => RecalculateColors(), [activeIndex]);
@@ -68,26 +69,27 @@ function SortingVisualizer({length = 20}) {
     }
 
     const handleSortClick = () => {
+        setIsButtonDisabled(true);
         if(algorithm === 'bubbleSort'){
-             BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'mergeSort'){
-            MergeSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            MergeSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'quickSort'){
-            QuickSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            QuickSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'radixSort'){
-            RadixSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            RadixSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'insertionSort'){
-            InsertionSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            InsertionSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'bitonicSort'){
-            BitonicSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            BitonicSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
         else if(algorithm === 'heapSort'){
-            HeapSort(values, setValues, setNumYellow, setActiveIndex, 200)
+            HeapSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
         }
     }
 
@@ -137,7 +139,7 @@ function SortingVisualizer({length = 20}) {
                       <MenuItem value={'heapSort'}>Heap sort</MenuItem>
                     </Select>
                 </FormControl>
-                <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick}>Sort</Button>
+                <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick} disabled={isButtonDisabled}>Sort</Button>
             </Stack>
         </Stack> 
     );
