@@ -4,7 +4,7 @@ function delay(milliseconds) {
     });
 }
 
-async function HeapSort(arr, arraySetter, highlightOne, sleepTime) {
+async function HeapSort(arr, arraySetter, numberOfSortedSetter, highlightOne, sleepTime) {
     // Build a max heap
     async function heapify(arr, n, i) {
         let largest = i;
@@ -22,9 +22,10 @@ async function HeapSort(arr, arraySetter, highlightOne, sleepTime) {
         if (largest !== i) {
             highlightOne(i);
             await delay(sleepTime);
-
+            highlightOne(largest);
             [arr[i], arr[largest]] = [arr[largest], arr[i]];
             arraySetter([...arr]);
+            await delay(sleepTime);
 
             await heapify(arr, n, largest);
         }
@@ -44,9 +45,12 @@ async function HeapSort(arr, arraySetter, highlightOne, sleepTime) {
 
         [arr[0], arr[i]] = [arr[i], arr[0]];
         arraySetter([...arr]);
+        numberOfSortedSetter(i);
+        await delay(sleepTime);
 
         await heapify(arr, i, 0);
     }
+    highlightOne(-1);
 }
 
 export default HeapSort;

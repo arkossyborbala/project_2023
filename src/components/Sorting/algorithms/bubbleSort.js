@@ -27,6 +27,7 @@ async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne,
         n = newN;
         numberOfSortedSetter(n);
     } while (swapped);
+    highlighttOne(-1);
 }
 
 export default BubbleSort;
