@@ -13,6 +13,7 @@ import RadixSort from './algorithms/radixSort';
 import InsertionSort from './algorithms/insertionSort.js'
 import BitonicSort from './algorithms/bitonicSort.js';
 import HeapSort from './algorithms/heapSort.js';
+import { Slider } from '@mui/material';
 
 
 function SortingVisualizer({length = 20}) {
@@ -32,12 +33,13 @@ function SortingVisualizer({length = 20}) {
         setColors(newColors);
     }
     //states
-    const [values, setValues] = useState(() => makeRandomArray());
-    const [colors, setColors] = useState(Array(length).fill('#fac420'));
+    const [values, setValues] = useState(() => makeRandomArray()); //values to be sorted
+    const [colors, setColors] = useState(Array(length).fill('#fac420')); //colors of bars
     const [numYellow, setNumYellow] = useState(length); //for slider [0, length]
     const [activeIndex, setActiveIndex] = useState(-1);
     const [algorithm, setAlgorithm] = useState('bubbleSort'); //for dropdown
-    const [isButtonDisabled, setIsButtonDisabled] = useState(false); //for sort button
+    const [isSorting, setIsSorting] = useState(false); //for sort button
+    const [sleepTime, setSleepTime] = useState(200); //for slider [0, 1000
     //hooks
     useEffect(() => RecalculateColors(), [numYellow]);
     useEffect(() => RecalculateColors(), [activeIndex]);
@@ -62,30 +64,34 @@ function SortingVisualizer({length = 20}) {
     }
 
     const handleSortClick = () => {
-        setIsButtonDisabled(true);
+        setIsSorting(true);
         if(algorithm === 'bubbleSort'){
-            BubbleSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            BubbleSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'mergeSort'){
-            MergeSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            MergeSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'quickSort'){
-            QuickSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            QuickSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'radixSort'){
-            RadixSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            RadixSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'insertionSort'){
-            InsertionSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            InsertionSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'bitonicSort'){
-            BitonicSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            BitonicSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'heapSort'){
-            HeapSort(values, setValues, setNumYellow, setActiveIndex, 200).then(() => setIsButtonDisabled(false));
+            HeapSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
     }
 
+    const handleSleepTimeSliderChange = (event, newValue) => {
+        setSleepTime(newValue);
+    }
+    //render
     return (
         <Stack direction="row" spacing={2} alignItems='center' justifyContent='center' mr={2}>
             <BarChart
@@ -117,7 +123,14 @@ function SortingVisualizer({length = 20}) {
                       <MenuItem value={'heapSort'}>Heap sort</MenuItem>
                     </Select>
                 </FormControl>
-                <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick} disabled={isButtonDisabled}>Sort</Button>
+                <Button variant="contained" sx={'max-height:50px'} onClick={handleSortClick} disabled={isSorting}>Sort</Button>
+                <Slider 
+                    min={10}
+                    max={1010}
+                    step={100}
+                    defaultValue={sleepTime}
+                    onChange={handleSleepTimeSliderChange}/>
+
             </Stack>
         </Stack> 
     );
