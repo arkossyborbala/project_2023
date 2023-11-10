@@ -2,7 +2,6 @@ import {useEffect, useState} from 'react';
 import Stack from '@mui/material/Stack';
 import { BarChart } from '@mui/x-charts';
 import Button  from '@mui/material/Button';
-import Slider from '@mui/material/Slider';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
@@ -50,18 +49,12 @@ function SortingVisualizer({length = 20}) {
             [shuffledArray[i], shuffledArray[j]] = [shuffledArray[j], shuffledArray[i]];
         }
         setValues(shuffledArray);
+        setNumYellow(length);
     }
 
     const handleResetClick = () => {
         setValues(makeRandomArray());
-    }
-
-    const handleSliderChange = (_, newValue) => {
-        setNumYellow(newValue);
-    }
-
-    const handleSecondSliderChange = (_, newValue) => {
-        setActiveIndex(newValue);
+        setNumYellow(length);
     }
     
     const handleAlgorithmChange = (event) => {
@@ -106,21 +99,6 @@ function SortingVisualizer({length = 20}) {
             <Stack mr={2} spacing={2}>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleShuffleClick}>Shuffle</Button>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleResetClick}>Reset</Button>
-                <Slider
-                    min={0}
-                    max={length}
-                    step={1}
-                    defaultValue={length}
-                    onChange={handleSliderChange}
-                    sx={{marginRight: '10px'}}
-                />
-                <Slider
-                    min={-1}
-                    max={length-1}
-                    step={1}
-                    defaultValue={-1}
-                    onChange={handleSecondSliderChange}
-                />
                 <FormControl fullWidth>
                     <InputLabel id="algorithm-select-label">Algorithm</InputLabel>
                     <Select
