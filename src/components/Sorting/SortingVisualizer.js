@@ -14,6 +14,7 @@ import InsertionSort from './algorithms/insertionSort.js'
 import BitonicSort from './algorithms/bitonicSort.js';
 import HeapSort from './algorithms/heapSort.js';
 import { Slider } from '@mui/material';
+import Bars from './Bars.js';
 
 
 function SortingVisualizer({length = 20}) {
@@ -98,14 +99,15 @@ function SortingVisualizer({length = 20}) {
     //render
     return (
         <Stack direction="row" spacing={2} alignItems='center' justifyContent='center' mr={2}>
-            <BarChart
+            {/* <BarChart
                 series={values.map((s) => ({ data: [s] }))}
                 height={500}
                 bottomAxis={null}
                 leftAxis={null}
                 colors={colors}
                 axisHighlight={{x: 'none', y: 'none'}}
-            />
+            /> */}
+            <Bars values={values} colors={colors}/>
             <Stack mr={2} spacing={2}>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleShuffleClick}>Shuffle</Button>
                 <Button variant="contained" sx={'max-height:50px'} onClick={handleResetClick}>Reset</Button>
