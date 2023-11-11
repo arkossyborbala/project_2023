@@ -30,6 +30,9 @@ function SortingVisualizer({length = 20}) {
         if(activeIndex !== -1){
             newColors[activeIndex] = '#E0039C';
         }
+        if(activeIndex2 !== -1){
+            newColors[activeIndex2] = '#30D5C8';
+        }
         setColors(newColors);
     }
     //states
@@ -37,6 +40,7 @@ function SortingVisualizer({length = 20}) {
     const [colors, setColors] = useState(Array(length).fill('#fac420')); //colors of bars
     const [numYellow, setNumYellow] = useState(length); //for slider [0, length]
     const [activeIndex, setActiveIndex] = useState(-1);
+    const [activeIndex2, setActiveIndex2] = useState(-1);
     const [algorithm, setAlgorithm] = useState('bubbleSort'); //for dropdown
     const [isSorting, setIsSorting] = useState(false); //for sort button
     const [sleepTime, setSleepTime] = useState(200); //for slider [0, 1000
@@ -66,7 +70,7 @@ function SortingVisualizer({length = 20}) {
     const handleSortClick = () => {
         setIsSorting(true);
         if(algorithm === 'bubbleSort'){
-            BubbleSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            BubbleSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'mergeSort'){
             MergeSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
@@ -78,7 +82,7 @@ function SortingVisualizer({length = 20}) {
             RadixSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'insertionSort'){
-            InsertionSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            InsertionSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'bitonicSort'){
             BitonicSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));

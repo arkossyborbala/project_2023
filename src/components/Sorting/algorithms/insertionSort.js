@@ -4,10 +4,11 @@ function delay(milliseconds) {
     });
 }
 
-async function InsertionSort(arr, arraySetter, numberOfSortedSetter, highlightOne, sleepTime) {
+async function InsertionSort(arr, arraySetter, numberOfSortedSetter, highlightOne, highlightTwo, sleepTime) {
     const len = arr.length;
     
     for (let i = 1; i < len; i++) {
+        highlightTwo(i);
         numberOfSortedSetter(i);
         const key = arr[i];
         let j = i - 1;
@@ -26,6 +27,7 @@ async function InsertionSort(arr, arraySetter, numberOfSortedSetter, highlightOn
     }
     numberOfSortedSetter(len);
     highlightOne(-1);
+    highlightTwo(-1);
 }
 
 export default InsertionSort;

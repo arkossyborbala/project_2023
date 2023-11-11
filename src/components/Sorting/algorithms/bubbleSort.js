@@ -4,7 +4,7 @@ function delay(milliseconds){
     });
 }
 
-async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne, sleepTime) {
+async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne, highlightTwo, sleepTime) {
     let n = arr.length;
     let swapped;
     do {
@@ -12,9 +12,9 @@ async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne,
         let newN = 0;
         for (let i = 1; i < n; i++) {
             await delay(sleepTime);
-            highlighttOne(i - 1);
+            highlighttOne(i);
             if (arr[i - 1] > arr[i]) {
-                highlighttOne(i);
+                highlightTwo(-1);
                 // Swap the elements
                 let temp = arr[i - 1];
                 arr[i - 1] = arr[i];
@@ -23,11 +23,15 @@ async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne,
                 swapped = true;
                 newN = i;
             }
+            else {
+                highlightTwo(i);
+            }
         }
         n = newN;
         numberOfSortedSetter(n);
     } while (swapped);
     highlighttOne(-1);
+    highlightTwo(-1);
 }
 
 export default BubbleSort;
