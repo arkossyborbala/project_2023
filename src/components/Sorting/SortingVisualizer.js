@@ -79,7 +79,7 @@ function SortingVisualizer({length = 20}) {
             QuickSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'radixSort'){
-            RadixSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            RadixSort(values, setValues, setColors, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'insertionSort'){
             InsertionSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
