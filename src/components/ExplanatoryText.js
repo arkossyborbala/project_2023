@@ -3,13 +3,10 @@ import { Box } from '@mui/system';
 export default function ExplanatoryText({ index }) {
   const texts = [
     '<p> This is merge sort.</p>' +
-    '<p> In computer science, merge sort (also commonly spelled mergesort) is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output.</p> Mergesort is a divide and conquer algorithm that was invented by John von Neumann in 1945.</p>' + 
-    '<p> An example of merge sort. First divide the list into the smallest unit (1 element), then compare each element with the adjacent list to sort and merge the two adjacent lists. Finally all the elements are sorted and merged. See the <a href="https://miro.medium.com/v2/0*K7cD17vfL7FdTTLK.gif" target="_blank">example</a>.' +
-    '<p> <img src="/https://github.com/arkossyborbala/project_2023/blob/main/public/merge_sort_image.png" alt="Merge Sort" />'+
+    '<p> In computer science, merge sort (also commonly spelled mergesort) is an efficient, general-purpose, comparison-based sorting algorithm. Most implementations produce a stable sort, which means that the implementation preserves the input order of equal elements in the sorted output.</p> Mergesort is a divide and conquer algorithm that was invented by John von Neumann in 1945.</p>' +
+    '<p> Here you can see an animation of the <a href="https://miro.medium.com/v2/0*K7cD17vfL7FdTTLK.gif" target="_blank">merge sort example</a>.</p>' +
     '<p> A recursive merge sort algorithm used to sort an array of 7 integer values. These are the steps a human would take to emulate merge sort (top-down).' +
-    '<p> Learn more about Merge Sort on <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Wikipedia</a>.</p>'+
-    '<p> Here you can see an animation of the Merge Sort algorithm:</p>' +
-    '<iframe width="560" height="315" src="https://www.youtube.com/watch?v=ZRPoEKHXTJg&ab_channel=TimoBingmann" frameborder="0" allowfullscreen></iframe>',
+    '<p> Learn more about Merge Sort on <a href="https://en.wikipedia.org/wiki/Merge_sort" target="_blank">Wikipedia</a>.</p>',
     '<p> This is quick sort.</p>' +
     '<p> Quicksort is a divide and conquer algorithm.Quicksort first divides a large array into two smallersub-arrays: the low elements and the high elements. Quicksort can then recursively sort the sub-arrays.' +
     '<p>  The steps are:' +
