@@ -22,7 +22,36 @@ export default function ExplanatoryText({ index }) {
     '<p>Bubble sort is a simple and intuitive sorting algorithm used to arrange elements in a specific order within a list or array. It works by repeatedly comparing adjacent elements and swapping them if they are in the wrong order. The algorithm derives its name from the way smaller elements "bubble" to the top of the list during each pass. It operates by comparing adjacent elements in the list and swapping them if they are out of order.</p>' +
     '<p>The algorithm continues this process for each element in the list, iterating through it multiple times until no more swaps are needed. It is particularly useful for small lists or nearly sorted data, but it quickly becomes inefficient for large datasets. While bubble sort is not typically used in production code due to its inefficiency, understanding its basic principles can be valuable for learning about sorting algorithms and computer science concepts.</p>' +
     '<p> Animated visualization of the quicksort algorithm. The horizontal lines are pivot values. </p>'+
-    ' Here you can see list plotted in Cartesion coordiante system using <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif" target="_blank">bubble sorting</a>.</p>'
+    ' Here you can see list plotted in Cartesion coordiante system using <a href="https://upload.wikimedia.org/wikipedia/commons/3/37/Bubble_sort_animation.gif" target="_blank">bubble sorting</a>.</p>',
+    '<p>This is radix sort.</p>'+
+    '<p>In computer science, RADIX SORT is a non-comparative integer sorting algorithm that sorts data with integer keys by grouping keys by the individual digits which share the same significant position and value. A positional notation is required, but because integers can represent strings of characters (e.g., names or dates) and specially formatted floating point numbers, radix sort is not limited to integers.</p>'+
+    '<p>Efficiency.</p>'+
+    '<p>The topic of the efficiency of radix sort compared to other sorting algorithms is somewhat tricky and subject to quite a lot of misunderstandings. Whether radix sort is equally efficient, less efficient or more efficient than the best comparison-based algorithms depends on the details of the assumptions made.</p>'+
+    '<p> Animated visualization of the radix sort algorithm.'+
+    ' Here you can see the <a href="https://i.makeagif.com/media/7-17-2016/hlfsiC.gif" target="_blank">radix sort example</a>.</p>',
+    '<p>This is insertion sort.</p>'+
+    '<p>Insertion sort is a simple sorting algorithm that builds the final sorted array (or list) one item at a time. It is much less efficient on large lists than more advanced algorithms such as quicksort, heapsort, or merge sort.</p>'+
+    '<p> Animated visualization of the insertion sort algorithm.'+
+    '<p> Here you can see the <a href="https://upload.wikimedia.org/wikipedia/commons/4/42/Insertion_sort.gif" target="_blank"> non-number insertion sort example</a>.</p>'+
+    '<p> Here you can see the <a href="https://upload.wikimedia.org/wikipedia/commons/0/0f/Insertion-sort-example-300px.gif" target="_blank"> number insertion sort example</a>.</p>',
+    '<p>This is bitonic sort.</p>'+
+    '<p> Bitonic sort is a comparison-based sorting algorithm commonly used in parallel systems and hardware implementations. Bitonic sort is a comparison-based sorting algorithm commonly used in parallel systems and hardware implementations. </p>' +
+    '<p>Bitonic sort consists of the following steps: </p>'+
+    '<p>1. Creating Increasing Bitonic Sequences:</p>'+
+ 
+    '<p>   - The input sequence is divided into two parts. </p>'+
+    '<p>   - One part is used to create an increasing sequence, while the other part forms a decreasing sequence.</p>'+
+    '<p>2. Merging Bitonic Sequences: </p>'+
+    '<p>   - Bitonic sequences are recursively merged. </p>'+
+    '<p>   - Initially, the sequence is split into two parts, and each part is independently sorted in ascending or descending order.</p>'+
+    '<p>   - Finally, the sorted segments are pairwise merged, ensuring one segment is in increasing order and the other in decreasing order.</p>'+
+    '<p>3. Writing Back the Results: </p>'+
+    '<p>   - After the last merge, the result is written back into the original input sequence.</p>'+
+    '<p> Here you can see <a href="https://upload.wikimedia.org/wikipedia/commons/9/98/Batcher_Bitonic_Mergesort_for_eight_inputs.svg" target="_blank"> a bitonic sort network with eight inputs.</a>.</p>',
+    '<p>This is heap sort.</p>'+
+    '<p>Heapsort is a comparison-based sorting algorithm. Heapsort can be thought of as an improved selection sort: like that algorithm, it divides its input into a sorted and an unsorted region, and it iteratively shrinks the unsorted region by extracting the largest element and moving that to the sorted region. The improvement consists of the use of a heap data structure rather than a linear-time search to find the maximum.</p>'+
+    '<p> Here you can see the <a href="https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif" target="_blank"> non-number heap sort example</a>.</p>'+
+    '<p> Here you can see the <a href="https://upload.wikimedia.org/wikipedia/commons/4/4d/Heapsort-example.gif" target="_blank"> number heap sort example</a>.</p>',
   ];
 
   return (
