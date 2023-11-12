@@ -11,7 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import BarChartIcon from '@mui/icons-material/BarChart';
 
-const pages = ['Merge sort', 'Quicksort', 'Bubble sort'];
+const pages = ['Merge sort', 'Quicksort', 'Bubble sort', 'Radix sort', 'Insertion sort', 'Bitonic sort', 'Heap sort'];
 
 function TopBar({setIndexOfText}) {
   const [anchorElNav, setAnchorElNav] = useState(null);
