@@ -1,8 +1,4 @@
-function delay(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import {delay} from '../../../App.js'
 
 async function HeapSort(arr, arraySetter, numberOfSortedSetter, highlightOne, sleepTime) {
     // Build a max heap

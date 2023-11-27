@@ -1,8 +1,4 @@
-function delay(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import {delay} from '../../../App.js'
 
 async function InsertionSort(arr, arraySetter, numberOfSortedSetter, highlightOne, highlightTwo, sleepTime) {
     const len = arr.length;

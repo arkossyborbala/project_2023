@@ -1,8 +1,4 @@
-function delay(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import {delay} from '../../../App.js'
 
 async function BitonicSort(arr, arraySetter, numberOfSortedSetter,highlightOne, sleepTime) {
     async function bitonicMerge(arr, up, arraySetter, highlightOne, sleepTime) {

@@ -1,6 +1,4 @@
-function delay(milliseconds) {
-    return new Promise(resolve => setTimeout(resolve, milliseconds));
-}
+import {delay} from '../../../App.js'
 
 async function QuickSort(arr, arraySetter, numberOfSortedSetter, highlighttOne, sleepTime) {
     async function partition(low, high) {

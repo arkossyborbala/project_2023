@@ -1,8 +1,4 @@
-function delay(milliseconds) {
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import {delay} from '../../../App.js'
 
 async function RadixSort(arr, arraySetter, colorSetter, sleepTime) {
     const maxDigitCount = Math.max(...arr).toString().length;

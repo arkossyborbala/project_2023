@@ -1,8 +1,4 @@
-function delay(milliseconds){
-    return new Promise(resolve => {
-        setTimeout(resolve, milliseconds);
-    });
-}
+import {delay} from '../../../App.js'
 
 async function BubbleSort(arr, arraySetter, numberOfSortedSetter, highlighttOne, highlightTwo, sleepTime) {
     let n = arr.length;
