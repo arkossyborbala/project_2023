@@ -7,9 +7,6 @@ async function MergeSort(arr, arraySetter, numberOfSortedSetter, highlightOne, s
         let rightIndex = 0;
 
         while (leftIndex < left.length && rightIndex < right.length) {
-            highlightOne(leftIndex);
-            highlightOne(right.length + rightIndex);
-            await delay(sleepTime);
 
             if (left[leftIndex] < right[rightIndex]) {
                 result.push(left[leftIndex]);
@@ -20,7 +17,7 @@ async function MergeSort(arr, arraySetter, numberOfSortedSetter, highlightOne, s
             }
         }
 
-        return result.concat(left.slice(leftIndex), right.slice(rightIndex));
+        return result.concat(left.slice(leftIndex)).concat(right.slice(rightIndex));
     }
 
     if (arr.length <= 1) {
@@ -33,10 +30,10 @@ async function MergeSort(arr, arraySetter, numberOfSortedSetter, highlightOne, s
 
     const sortedLeft = await MergeSort(left, arraySetter, numberOfSortedSetter, highlightOne, sleepTime);
     const sortedRight = await MergeSort(right, arraySetter, numberOfSortedSetter, highlightOne, sleepTime);
-
     const mergedArray = await merge(sortedLeft, sortedRight);
-    arraySetter(mergedArray);
-
+    arraySetter(mergedArray);//visszállítja a rendezetlent amikor nem számítasz rá...
+    await delay(sleepTime);
+    highlightOne(-1);
     return mergedArray;
 }
 

@@ -19,9 +19,18 @@ import { Slider } from '@mui/material';
 function SortingVisualizer({length = 20}) {
     //utils
     function makeRandomArray() {
-        const randomArray = Array.from({ length }, () => Math.floor(Math.random() * 100 + 10));
+        const randomArray = [];
+      
+        while (randomArray.length < length) {
+          const randomNumber = Math.floor(Math.random() * 100 + 10);
+      
+          // Check if the number is not already in the array
+          if (!randomArray.includes(randomNumber)) {
+            randomArray.push(randomNumber);
+          }
+        }
         return randomArray;
-    }
+    }     
 
     function RecalculateColors() {
         const yellow = Array(numYellow).fill('#fac420');
@@ -34,6 +43,28 @@ function SortingVisualizer({length = 20}) {
             newColors[activeIndex2] = '#30D5C8';
         }
         setColors(newColors);
+    }
+// [1,2,3,4,5,6]
+// [4,2,5]
+// [1,4,3,2,5,6]
+    function insertSubArray(bigArray, smallArray){
+        let newArray = [];
+        let smallIndex = 0;
+        bigArray.forEach((value) => {
+            if(smallArray.includes(value) && smallIndex < smallArray.length){
+                newArray.push(smallArray[smallIndex]);
+                smallIndex++;
+            }
+            else{
+                newArray.push(value);
+            }
+        });
+        console.log(smallArray);
+        console.log(newArray);
+        return newArray;
+    }
+    function setSubArray(smallArray){
+        setValues((prev) => insertSubArray(prev, smallArray));
     }
     //states
     const [values, setValues] = useState(() => makeRandomArray()); //values to be sorted
@@ -56,6 +87,8 @@ function SortingVisualizer({length = 20}) {
         }
         setValues(shuffledArray);
         setNumYellow(length);
+        setActiveIndex(-1);
+        setActiveIndex2(-1);
     }
 
     const handleResetClick = () => {
@@ -73,10 +106,10 @@ function SortingVisualizer({length = 20}) {
             BubbleSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'mergeSort'){
-            MergeSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            MergeSort(values, setSubArray, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'quickSort'){
-            QuickSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            QuickSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'radixSort'){
             RadixSort(values, setValues, setColors, sleepTime).then(() => setIsSorting(false));
@@ -132,7 +165,7 @@ function SortingVisualizer({length = 20}) {
                     min={10}
                     max={1010}
                     step={100}
-                    defaultValue={sleepTime}
+                    value={sleepTime}
                     onChange={handleSleepTimeSliderChange}/>
 
             </Stack>
