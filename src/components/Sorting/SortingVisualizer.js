@@ -44,9 +44,7 @@ function SortingVisualizer({length = 20}) {
         }
         setColors(newColors);
     }
-// [1,2,3,4,5,6]
-// [4,2,5]
-// [1,4,3,2,5,6]
+
     function insertSubArray(bigArray, smallArray){
         let newArray = [];
         let smallIndex = 0;
@@ -118,7 +116,7 @@ function SortingVisualizer({length = 20}) {
             InsertionSort(values, setValues, setNumYellow, setActiveIndex, setActiveIndex2, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'bitonicSort'){
-            BitonicSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
+            BitonicSort(values, setSubArray, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
         }
         else if(algorithm === 'heapSort'){
             HeapSort(values, setValues, setNumYellow, setActiveIndex, sleepTime).then(() => setIsSorting(false));
